@@ -1,10 +1,12 @@
 import type { NextConfig } from "next";
 
+// Only enable standalone output when explicitly asked (e.g. Docker build).
+// On Vercel, standalone output must NOT be used because it conflicts with Vercel's native serverless tracing.
+const isStandalone = process.env.STANDALONE === "true";
+
 const nextConfig: NextConfig = {
-  output: "standalone",
+  ...(isStandalone ? { output: "standalone" } : {}),
   images: {
-    // Served images are self-hosted under /public, so the built-in optimizer
-    // runs fine in the standalone server. Modern formats cut bytes → better LCP.
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
