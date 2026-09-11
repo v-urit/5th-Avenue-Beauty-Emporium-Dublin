@@ -1,0 +1,11 @@
+# Local secrets — never commit real credentials
+.env
+.env.local
+.env.*.local
+
+# Build artifacts
+/bin/
+*.exe
+*.test
+*.out
+coverage.*

@@ -1,0 +1,13 @@
+version: "2"
+sql:
+  - engine: "postgresql"
+    schema:
+      - "migrations/000001_init_schema.up.sql"
+      - "migrations/000002_add_unique_booking_index.up.sql"
+      - "migrations/000003_add_tickets_and_services_crud.up.sql"
+    queries: "sql/queries/"
+    gen:
+      go:
+        package: "repository"
+        out: "internal/repository"
+        sql_package: "pgx/v5"

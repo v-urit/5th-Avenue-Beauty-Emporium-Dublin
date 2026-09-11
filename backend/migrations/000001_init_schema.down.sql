@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS gallery_images;
+DROP TABLE IF EXISTS bookings;
+DROP TABLE IF EXISTS services;
+DROP TABLE IF EXISTS otp_codes;
+DROP TABLE IF EXISTS refresh_tokens;
+DROP TABLE IF EXISTS users;
